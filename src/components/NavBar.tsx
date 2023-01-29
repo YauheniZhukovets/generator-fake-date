@@ -1,11 +1,7 @@
 import React from 'react';
 import {Container, Navbar} from "react-bootstrap";
 
-type NavBarType = {
-
-}
-
-export const NavBar: React.FC<NavBarType> = React.memo(() => {
+export const NavBar: React.FC = React.memo(() => {
 
     return (
             <Navbar bg="dark" variant="dark">

@@ -6,6 +6,9 @@ export const changeLocale = (locale: string) => {
 export const setUsers = (users:UserFakeDate[]) => {
     return {type: 'USER/SET-USERS', users} as const
 }
+export const changeSeed = (seed: number) => {
+    return {type: 'USER/CHANGE-SEED', seed} as const
+}
 export const removeUsers = () => {
     return {type: 'USER/REMOVE-USES'} as const
 }

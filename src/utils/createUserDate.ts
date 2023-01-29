@@ -3,9 +3,10 @@ import {Place} from '../interface/enum';
 import {CityAddress, UserFakeDate} from '../interface/userInterface';
 
 const createBaseAddress = () => {
+    const state = faker.address.state()
     return {
-        country: faker.address.country(),
-        city: faker.address.city(),
+        country: state,
+        city: faker.address.city(state),
         street: faker.address.street(),
         house: faker.commerce.price(1, 1000, 0)
     }
@@ -42,10 +43,10 @@ const createRandomUser = (locale: string = 'ru', seed: number): UserFakeDate => 
 }
 
 
-export const createUsersDate = (locale: string = 'en', countUsers: number, index: number): UserFakeDate[] => {
+export const createUsersDate = (locale: string = 'en', countUsers: number, seed: number): UserFakeDate[] => {
     const users: UserFakeDate[] = []
     Array.from({length: countUsers}).forEach((el, i) => {
-        users.push(createRandomUser(locale, index + i));
+        users.push(createRandomUser(locale, seed + i));
     })
     return users
 }
