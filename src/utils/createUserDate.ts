@@ -3,10 +3,9 @@ import {Place} from '../interface/enum';
 import {CityAddress, UserFakeDate} from '../interface/userInterface';
 
 const createBaseAddress = () => {
-    const state = faker.address.state()
     return {
-        country: state,
-        city: faker.address.city(state),
+        country: faker.address.state(),
+        city: faker.address.city(),
         street: faker.address.street(),
         house: faker.commerce.price(1, 1000, 0)
     }
