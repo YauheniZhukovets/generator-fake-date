@@ -1,9 +1,8 @@
 import React from 'react';
 import {ListGroup} from 'react-bootstrap';
-import {UserFakeDate} from '../interface/userInterface';
 
 type UserItemType = {
-    user: UserFakeDate
+    user: string[]
     index: number
 }
 
@@ -12,18 +11,14 @@ export const UserItem: React.FC<UserItemType> = React.memo(({user, index}) => {
         <div>
             <ListGroup horizontal className="pt-1">
                 <ListGroup.Item style={{width: '5%'}}> {index + 1} </ListGroup.Item>
-                <ListGroup.Item style={{width: '10%'}}> {user.id} </ListGroup.Item>
+                <ListGroup.Item style={{width: '10%'}}> {user[0]} </ListGroup.Item>
                 <ListGroup.Item style={{width: '25%'}}>
-                    {user.firstName} {user.lastName} {user.middleName}
+                    {user[1]} {user[2]} {user[3]}
                 </ListGroup.Item>
                 <ListGroup.Item style={{width: '45%'}}>
-                    {user.address.country},
-                    {user.address.city},
-                    {user.address.street},
-                    {user.address?.zip ? <> zip: {user.address?.zip}, </> : <>{}</>}
-                    {user.address.flat ? <> {user.address.house} / {user.address.flat} </> : <>{user.address.house}</>}
+                    {user[4]}, {user[5]}, {user[6]}, zip: {user[7]}, {user[8]} / {user[9]}
                 </ListGroup.Item>
-                <ListGroup.Item style={{width: '15%'}}>{user.phone}</ListGroup.Item>
+                <ListGroup.Item style={{width: '15%'}}>{user[10]}</ListGroup.Item>
             </ListGroup>
         </div>
     )

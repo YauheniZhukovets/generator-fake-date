@@ -1,11 +1,11 @@
 import {ActionUserType} from './userType';
-import {UserFakeDate} from '../interface/userInterface';
 
 const initialState = {
-    users: [] as UserFakeDate[],
+    users: [] as string[][],
     locale: 'en',
     countUsers: 10,
-    seed: 0
+    seed: 0,
+    countMistake: 0,
 }
 
 type InitialStateType = typeof initialState
@@ -18,11 +18,14 @@ export const userReducer = (state = initialState, action: ActionUserType): Initi
         case 'USER/SET-USERS': {
             return {...state, users: [...state.users, ...action.users]}
         }
-        case 'USER/REMOVE-USES': {
+        case 'USER/REMOVE-USERS-LIST': {
             return {...state, users: []}
         }
         case 'USER/CHANGE-SEED': {
             return {...state, seed: action.seed}
+        }
+        case 'USER/CHANGE-COUNT-MISTAKE': {
+            return {...state, countMistake: action.countMistake}
         }
         default:
             return state

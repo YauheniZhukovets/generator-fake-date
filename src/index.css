@@ -3,7 +3,7 @@ body {
 }
 
 .userListContainer {
-  height: calc(85vh - 98px);
+  height: calc(100vh - 148px);
   background-color: rgba(158, 170, 190, 0.29);
   overflow-y: scroll;
 }

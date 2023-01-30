@@ -3,13 +3,12 @@ import {UserItem} from './UserItem';
 import {Container} from 'react-bootstrap';
 import {fetchFakeUsers} from '../store/userThunk';
 import {useAppDispatch, useAppSelector} from '../hooks/hooks';
-import {UserFakeDate} from '../interface/userInterface';
 import {useObserver} from '../hooks/useObserver';
 import {NullAnd} from '../type/NullAnd';
 
 export const UserList: React.FC = React.memo(() => {
         const dispatch = useAppDispatch()
-        const users = useAppSelector<UserFakeDate[]>(state => state.user.users)
+        const users = useAppSelector<string[][]>(state => state.user.users)
         const [page, setPage] = useState<number>(0)
         const [isLoading, setIsLoading] = useState<boolean>(false)
         const lastElement = useRef<NullAnd<HTMLDivElement>>(null)
